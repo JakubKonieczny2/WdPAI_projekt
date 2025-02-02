@@ -2,8 +2,8 @@
 class Database {
     private static $host = "localhost";
     private static $dbname = "system_rezerwacji";
-    private static $user = "postgres";
-    private static $password = "kubos123";
+    private static $user = "";
+    private static $password = "";
     private static $pdo = null;
 
     public static function setCredentials($user, $password) {
