@@ -32,8 +32,13 @@ class User {
     }
 
     public function deleteUser($userId) {
-        $stmt = $this->db->prepare("DELETE FROM users WHERE id = ?");
-        $stmt->execute([$userId]);
-    }
+    // Najpierw usuń powiązane rekordy z tabeli doctors
+    $stmt = $this->db->prepare("DELETE FROM doctors WHERE user_id = ?");
+    $stmt->execute([$userId]);
+
+    // Następnie usuń użytkownika z tabeli users
+    $stmt = $this->db->prepare("DELETE FROM users WHERE id = ?");
+    $stmt->execute([$userId]);
+}
 }
 ?>
