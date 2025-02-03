@@ -12,11 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date = $_POST['date'];
     $time = $_POST['time'];
 
-    $appointment = new Appointment();
-    $appointment->addAppointment($doctorId, $date, $time);
+    try {
+        $appointment = new Appointment();
+        $appointment->addAppointment($doctorId, $date, $time);
 
-    header("Location: doctor.php");
-    exit();
+        $_SESSION['success'] = "Termin został pomyślnie dodany.";
+        header("Location: doctor.php");
+        exit();
+    } catch (Exception $e) {
+        $_SESSION['error'] = $e->getMessage();
+        header("Location: add_appointment.php");
+        exit();
+    }
 }
 ?>
 
@@ -31,6 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <h2>Dodaj termin wizyty</h2>
+
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="error"><?= $_SESSION['error'] ?></div>
+            <?php unset($_SESSION['error']); ?>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['success'])): ?>
+            <div class="success"><?= $_SESSION['success'] ?></div>
+            <?php unset($_SESSION['success']); ?>
+        <?php endif; ?>
+
         <form method="POST" action="add_appointment.php">
             <div class="form-group">
                 <label for="date">Data:</label>
