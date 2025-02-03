@@ -19,6 +19,21 @@ class Appointment {
     }
 
     public function addAppointment($doctorId, $date, $time) {
+        $currentDateTime = new DateTime();
+        $appointmentDateTime = new DateTime("$date $time");
+
+        if ($appointmentDateTime < $currentDateTime) {
+            throw new Exception("Nie można dodać terminu z przeszłości.");
+        }
+
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM appointments WHERE doctor_id = ? AND appointment_date = ? AND appointment_time = ?");
+        $stmt->execute([$doctorId, $date, $time]);
+        $count = $stmt->fetchColumn();
+
+        if ($count > 0) {
+            throw new Exception("Termin w podanej dacie i godzinie już istnieje.");
+        }
+
         $stmt = $this->db->prepare("INSERT INTO appointments (doctor_id, appointment_date, appointment_time, status) VALUES (?, ?, ?, 'available')");
         $stmt->execute([$doctorId, $date, $time]);
     }
