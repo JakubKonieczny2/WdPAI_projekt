@@ -30,3 +30,23 @@ Lekarz: Kuba Nowak, kuba@mail.com <br />
 Admin: admin admin, admin@mail.com <br />
 Loguje się za pomocą maila i hasła, hasło admina: admin, pacjenta i lekarza: password <br />
 Hasła są haszowane za pomocą bcrypt z kosztem 12.  <br />
+
+## Strona główna <br />
+![obraz](https://github.com/user-attachments/assets/a7e16594-cc95-4969-b12c-d6574d7cd188)
+## Strona logowania <br />
+![obraz](https://github.com/user-attachments/assets/7846115d-8a6d-424b-ab22-0f4d3f3e06db)
+## Strona rejestracji <br />
+![obraz](https://github.com/user-attachments/assets/581541fd-f307-4b4f-9f71-22569bc0583e)
+## Strona pacjenta <br />
+![obraz](https://github.com/user-attachments/assets/e18289d0-059b-4eb2-b972-5a1d9a622be4)
+## Strona lekarza <br />
+![obraz](https://github.com/user-attachments/assets/7ea214d1-0fc9-482f-a570-891e9cf2546c)
+## Strona admina <br />
+![obraz](https://github.com/user-attachments/assets/b0ba0ad7-671b-4812-af06-a6a0040e5f18)
+## Strona dodawania terminu <br />
+![obraz](https://github.com/user-attachments/assets/4564278d-9109-4550-9999-6cd293eb954e)
+## Strona dodawania lekarza <br />
+![obraz](https://github.com/user-attachments/assets/05c4aa74-0f4d-422d-a9ed-e682551045b3)
+
+### Struktura bazy danych:
+![obraz](https://github.com/user-attachments/assets/6a614f8a-b9ba-4e05-9c63-e15c1421a92c)
