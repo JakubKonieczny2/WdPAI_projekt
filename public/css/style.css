@@ -1,9 +1,10 @@
-/* Strona główna */
+/* Ogólne style */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
+    color: #333;
 }
 
 .container {
@@ -11,47 +12,122 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
+    width: 90%;
+    max-width: 800px;
     margin: 20px auto;
+    text-align: center;
 }
 
+h1, h2, h3 {
+    color: #007bff;
+}
+
+/* Formularze */
 .form-group {
     margin-bottom: 15px;
+    text-align: left;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.form-group input {
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px;
 }
 
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Przyciski */
 .button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
     color: white;
+    background-color: #007bff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-decoration: none;
+    margin: 5px;
 }
 
 .button:hover {
     background-color: #0056b3;
 }
 
-.error {
-    color: red;
-    margin-bottom: 15px;
+.button.cancel {
+    background-color: #dc3545;
 }
 
+.button.cancel:hover {
+    background-color: #c82333;
+}
+
+.button.book {
+    background-color: #28a745;
+}
+
+.button.book:hover {
+    background-color: #218838;
+}
+
+.button.delete {
+    background-color: #ff0000;
+}
+
+.button.delete:hover {
+    background-color: #cc0000;
+}
+
+/* Tabele */
+.appointments-list {
+    margin: 20px auto;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.appointments-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.appointments-list th,
+.appointments-list td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.appointments-list th {
+    background-color: #007bff;
+    color: white;
+}
+
+.appointments-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.appointments-list tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Strona główna */
 .home-container {
     display: flex;
     justify-content: center;
@@ -77,112 +153,38 @@ body {
     background-color: #0056b3;
 }
 
-/* Strona pacjenta, lekarza, administratora */
-.appointments-list {
-    margin: 20px auto;
-    width: 80%;
-    max-width: 800px;
-}
-
-.appointments-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.appointments-list th, .appointments-list td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-.appointments-list th {
-    background-color: #007bff;
-    color: white;
-}
-
-.appointments-list tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.appointments-list tr:hover {
-    background-color: #f1f1f1;
-}
-
-.appointments-list .button {
-    padding: 5px 10px;
-    font-size: 14px;
-    margin: 2px;
-}
-
-.appointments-list .button.cancel {
-    background-color: #dc3545;
-}
-
-.appointments-list .button.cancel:hover {
-    background-color: #c82333;
-}
-
-.appointments-list .button.book {
-    background-color: #28a745;
-}
-
-.appointments-list .button.book:hover {
-    background-color: #218838;
-}
-
-
-/* Strona dodawania terminów i lekarzy */
-.add-form {
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-}
-
-.add-form .form-group {
+/* Komunikaty o błędach */
+.error {
+    color: red;
     margin-bottom: 15px;
 }
 
-.add-form .form-group label {
-    display: block;
-    margin-bottom: 5px;
+/* Responsywność */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .appointments-list table {
+        font-size: 14px;
+    }
 }
 
-.add-form .form-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+@media (max-width: 480px) {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 14px;
+    }
 
-.add-form .button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.add-form .button:hover {
-    background-color: #0056b3;
-}
-
-/* Przyciski anulowania i usuwania */
-.button.cancel {
-    background-color: #dc3545;
-}
-
-.button.cancel:hover {
-    background-color: #c82333;
-}
-
-.button.delete {
-    background-color: #ff0000;
-}
-
-.button.delete:hover {
-    background-color: #cc0000;
+    .button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }
